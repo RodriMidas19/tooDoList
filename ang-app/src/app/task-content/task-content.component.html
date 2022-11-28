@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+            <form [formGroup]="taskform">
+                <div class="textDiv">
+                    <div class="content">
+                        <input type="text" class="input" placeholder="Enter the Title" formControlName="title">
+                        <input type="text" class="input" placeholder="Enter the Task" formControlName="task">  
+                    </div>                
+                </div>
+            </form>
+            <div class="btnDiv">
+                <app-button (btnClick)="InsertData()" text="Add" color="#9fd3c7" class="btnAdd"></app-button>
+                <app-button *ngIf="getId" (btnClick)="updateTask()" text="Update" color="#00FFFF"></app-button>
+            </div>  
+     </div>
+    <div class="card" *ngFor="let us of readData">
+        <div class="textDiv">
+            <div class="content">
+                <h3>Title:</h3>
+                <h3>{{us.title}}</h3>
+            </div>
+            <div class="content">
+                <h3>Task:</h3>
+                <h3>{{us.task}}</h3>
+            </div>
+        </div>
+            <div class="btnDiv">
+                <app-button (btnClick)="deleteData(us.id)" class="btn" text="Delete" color="#fc4f43"></app-button>
+                <app-button (btnClick)="getTask(us.id)" text="Edit" color="#9fd3c7"></app-button>
+            </div>
+    </div>
+</div>
