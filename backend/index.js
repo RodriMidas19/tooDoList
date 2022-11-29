@@ -1,20 +1,20 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
+const http = require('http');
+const server = http.createServer(app);
+const {Server} = require('socket.io');
+const io = new Server(server);
 const mysql2 = require('mysql2');
 const bodyparser = require('body-parser');
 
-const app = express();
 app.use(cors());
 app.use(bodyparser.json());
-app.on('connection',(socket)=>{
-    socket.emit("hello","world");
-
-    socket.on("teste",(arg)=>{
-        console.log(arg);
-    })
+io.on('connection', (socket)=>{
+    console.log('a user connected');
 });
 
-app.listen(3000,()=>{
+server.listen(3000,()=>{
     console.log('listening on port 3000');
 });
 
