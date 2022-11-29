@@ -6,6 +6,13 @@ const bodyparser = require('body-parser');
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
+app.on('connection',(socket)=>{
+    socket.emit("hello","world");
+
+    socket.on("teste",(arg)=>{
+        console.log(arg);
+    })
+});
 
 app.listen(3000,()=>{
     console.log('listening on port 3000');
