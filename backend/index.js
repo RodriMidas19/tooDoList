@@ -20,11 +20,10 @@ server.listen(3000,()=>{
 
 //database connection
 const db = mysql2.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password:'',
-    database: 'db_escola',
-    port:3306
+    host: 'hostingmysql335.amen.pt',
+    user: 'RodriMidas19',
+    password:'ofixe19.2005R',
+    database: 'db_escola'
 });
 
 //Check database connection
