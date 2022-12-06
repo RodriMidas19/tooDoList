@@ -73,7 +73,7 @@ app.get('/task=:id',(req,res)=>{
 });
 app.delete('/task=:id',(req,res)=>{
     let getid=req.params.id;
-    let qr=`DELETE FROM tasks WHERE id = ${getid}`;~
+    let qr=`DELETE FROM tasks WHERE id = ${getid}`;
 
     db.query(qr,(err,result)=>{
         if(err){
